@@ -24,7 +24,5 @@ This project is an IT Helpdesk Ticketing System implemented in Oracle SQL.
 
 ## ER Diagram
 
-## ER Diagram
-
 Visual representation of tables and relationships in the IT Helpdesk Ticketing System.
 
