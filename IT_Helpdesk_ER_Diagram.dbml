@@ -1,0 +1,46 @@
+Table Users {
+  User_ID int [pk]
+  Name varchar
+  Email varchar
+  Role varchar
+}
+
+Table Tickets {
+  Ticket_ID int [pk]
+  Type varchar
+  Title varchar
+  Description text
+  Priority varchar
+  Status varchar
+  Created_Date date
+  Resolved_Date date
+  Assigned_To int [ref: > Users.User_ID]
+  Created_By int [ref: > Users.User_ID]
+  Category varchar
+}
+
+Table SLAs {
+  SLA_ID int [pk]
+  Ticket_ID int [ref: > Tickets.Ticket_ID]
+  SLA_Type varchar
+  Target_Hours int
+  Breach_Status varchar
+}
+
+Table Worklogs {
+  Worklog_ID int [pk]
+  Ticket_ID int [ref: > Tickets.Ticket_ID]
+  User_ID int [ref: > Users.User_ID]
+  Log_Date date
+  Hours_Worked float
+  Description text
+}
+
+Table Ticket_History {
+  History_ID int [pk]
+  Ticket_ID int [ref: > Tickets.Ticket_ID]
+  Old_Status varchar
+  New_Status varchar
+  Changed_By int [ref: > Users.User_ID]
+  Change_Date date
+}
